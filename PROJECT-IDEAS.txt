@@ -1,0 +1,217 @@
+================================================================================
+PRACTICAL PROJECT IDEAS — Harendra K.
+Portfolio projects for a CA Inter student. Built to impress (80%) a CA
+principal / articleship firm, and (20%) read well if posted online.
+================================================================================
+
+HOW TO USE THIS
+  - Pick 2–3 to start. Quality of one finished project beats five half-done ones.
+  - Each finished project becomes a card on your site: edit src/content/profile.ts,
+    replace a "sample" entry with a real one (title, blurb, year, and an `href`
+    linking to the PDF/Sheet/dashboard).
+  - Each entry below tells you WHAT to do, the TOOLS/DATA, rough EFFORT, and
+    HOW TO PRESENT it.
+
+GROUND RULES (these are what make it look professional, not student-y)
+  - Use ONLY public data (annual reports, BSE/NSE filings, screener.in). Never
+    use any real confidential / client data.
+  - Always state your assumptions in the open. A clear assumption beats a hidden one.
+  - For anything critical of a company, stay factual and neutral — analyse and ask
+    questions, never allege wrongdoing.
+  - Show your working. The reasoning IS the product.
+
+
+--------------------------------------------------------------------------------
+1. EQUITY VALUATION NOTE  —  "What is this company actually worth?"
+--------------------------------------------------------------------------------
+PITCH:  Value one listed Indian company from first principles (DCF) and cross-check
+        against its peers — written like a real research-desk note.
+
+WHY IT STANDS OUT:
+  - To a firm: proves you can read an annual report, model cash flows, and form a
+    defensible view. That judgment is the whole job.
+  - As a post: "Is [Company] fairly valued? I ran the numbers" travels well.
+
+WHAT YOU ACTUALLY DO:
+  1. Pick ONE company you understand as a customer (a consumer brand is easiest).
+  2. Pull 5 years of financials (annual report + screener.in).
+  3. Build a 5-year forecast: revenue -> EBIT -> free cash flow, every assumption labelled.
+  4. Do a DCF (estimate WACC, add a terminal value). Get an intrinsic value per share.
+  5. Cross-check with relative valuation: P/E and EV/EBITDA vs 3 peers.
+  6. Write a 2-page note: your number, the market's number, and the 3 things that
+     would change your mind.
+
+TOOLS / DATA:  Excel or Google Sheets; company annual report; screener.in (free);
+               RBI website for the risk-free rate.
+EFFORT:        2–4 evenings.
+PRESENT AS:    A 2-page PDF note + the model file.
+SITE CARD:     "A first-principles valuation of [Company], written like a research desk would."
+
+
+--------------------------------------------------------------------------------
+2. COST-SHEET TEARDOWN  —  "Where does every rupee go?"
+--------------------------------------------------------------------------------
+PITCH:  Take one real product or business and rebuild its unit economics — the full
+        cost sheet down to per-unit, and where the margin actually hides.
+
+WHY IT STANDS OUT:
+  - To a firm: costing is core CA Inter Group 2. Doing it on a REAL business (not a
+    textbook sum) shows you can apply it.
+  - As a post: "What's really inside the price of a [₹X product]" is very relatable.
+
+WHAT YOU ACTUALLY DO:
+  1. Pick a product with a knowable cost structure (a listed FMCG's segment, or a
+     local cafe / D2C brand you can reason about).
+  2. Build a full cost sheet: direct materials, direct labour, factory overhead,
+     admin, selling & distribution -> total cost -> per unit.
+  3. Compute contribution per unit and the break-even quantity.
+  4. End with one sharp insight ("margin actually hides in ___").
+
+TOOLS / DATA:  Excel; annual-report segment notes / public industry reports;
+               clearly-stated estimates where exact data isn't public.
+EFFORT:        2 evenings.
+PRESENT AS:    A 1-page cost sheet + a short note on the insight.
+SITE CARD:     "Breaking [product] down to unit economics — and where the margin hides."
+
+
+--------------------------------------------------------------------------------
+3. "WHAT THE NUMBERS WHISPER"  —  Quality-of-earnings / red-flags read
+--------------------------------------------------------------------------------
+PITCH:  A skeptic's read of one company's financials — the gaps between profit and
+        cash, the trends in receivables/inventory, and the footnote tells.
+
+WHY IT STANDS OUT:
+  - To a firm: this IS the audit mindset — professional skepticism before you've
+    even started articleship. Principals notice it immediately.
+  - As a post: "5 things the footnotes told me" is a strong, careful thread.
+
+WHAT YOU ACTUALLY DO:
+  1. Pick a company. Compare reported net profit vs operating cash flow over 5 years.
+  2. Track receivable days and inventory days — are they drifting up?
+  3. Scan the notes: related-party transactions, contingent liabilities, CARO
+     remarks, any change of auditors.
+  4. Write up the QUESTIONS you would put to management. Frame everything as
+     questions and observations — never accusations.
+
+TOOLS / DATA:  Excel for the ratios; annual reports; screener.in.
+EFFORT:        2–3 evenings.
+PRESENT AS:    A short "questions the numbers raise" memo.
+SITE CARD:     "Reading a company's statements the way an auditor would."
+
+
+--------------------------------------------------------------------------------
+4. GST INPUT-CREDIT RECONCILIATION  —  a small tool + a worked case
+--------------------------------------------------------------------------------
+PITCH:  An Excel tool that matches a purchase register against GSTR-2B and flags the
+        mismatches — plus a worked example showing how to resolve them.
+
+WHY IT STANDS OUT:
+  - To a firm: this is exactly the high-volume, must-be-right work in practice.
+    Building a tool for it shows initiative AND tax understanding.
+  - As a post: "I built a GST reconciliation sheet — here's how it works" is useful
+    to every small business and CA student.
+
+WHAT YOU ACTUALLY DO:
+  1. Create DUMMY data: a sample purchase register and a sample 2B extract.
+  2. Build the matching logic (Excel formulas or Power Query): Matched / Mismatch /
+     Missing in books / Missing in 2B.
+  3. Produce a clean reconciliation summary.
+  4. Document the basic ITC-eligibility rules you applied.
+
+TOOLS / DATA:  Excel (lookup formulas or Power Query); your own dummy data; GST
+               rules from public/official sources.
+EFFORT:        2 evenings.
+PRESENT AS:    The Excel tool + a one-page "how it works".
+SITE CARD:     "An Excel tool that reconciles GST input credit and flags the gaps."
+
+
+--------------------------------------------------------------------------------
+5. FINANCIAL-HEALTH DASHBOARD  —  one company, five years, at a glance
+--------------------------------------------------------------------------------
+PITCH:  An interactive dashboard for one company — key ratios, trends, and
+        common-size statements in one view, with a one-paragraph verdict.
+
+WHY IT STANDS OUT:
+  - To a firm: it's the rare-CA-who-can-build project. Analysis + tool skill.
+  - As a post: it's visual, which is what performs online.
+
+WHAT YOU ACTUALLY DO:
+  1. Collect 5 years of data for one company.
+  2. Build the ratio set: liquidity, solvency, efficiency, profitability.
+  3. Make it interactive — Excel/Sheets with slicers & charts is plenty. (Optional
+     stretch, since you can build web: a small static web page version.)
+  4. Add a one-paragraph "what this tells us" verdict.
+
+TOOLS / DATA:  Excel/Google Sheets dashboard (optional: a static web page);
+               screener.in / annual reports.
+EFFORT:        3–4 evenings.
+PRESENT AS:    The live dashboard (or screenshots + the file).
+SITE CARD:     "An interactive 5-year financial-health dashboard for [Company]."
+
+
+--------------------------------------------------------------------------------
+6. AUDIT PROGRAM & RISK MATRIX  —  real working papers for one process
+--------------------------------------------------------------------------------
+PITCH:  Pick one cycle (e.g. Revenue or Inventory) and design the full audit
+        approach: assertions, risks, controls, and the procedures to test them.
+
+WHY IT STANDS OUT:
+  - To a firm: shows you understand HOW an audit actually runs before day one of
+    articleship. This is unusually mature for a student.
+  - As a post: niche but credibility-building among finance/audit folks.
+
+WHAT YOU ACTUALLY DO:
+  1. Pick a process and a hypothetical SME context.
+  2. List the relevant assertions (existence, completeness, accuracy, cut-off...).
+  3. Map the key risks to each assertion.
+  4. Design tests of controls + substantive procedures for each.
+  5. Lay it out as a sample working paper / audit checklist.
+
+TOOLS / DATA:  Word + Excel; reference the Standards on Auditing and ICAI material.
+EFFORT:        2–3 evenings.
+PRESENT AS:    An audit program document + a risk matrix.
+SITE CARD:     "An audit program and risk matrix for the [revenue] cycle."
+
+
+--------------------------------------------------------------------------------
+7. PLAIN-ENGLISH EXPLAINER  —  teach one hard thing clearly  (the shareable 20%)
+--------------------------------------------------------------------------------
+PITCH:  Take one genuinely confusing topic (deferred tax, a costing method, an Ind AS)
+        and explain it so a beginner gets it — with one worked example.
+
+WHY IT STANDS OUT:
+  - To a firm: teaching something well proves you actually understand it.
+  - As a post: this is your best audience-builder — clear explainers get shared and
+    saved. It's also the lowest-effort to start.
+
+WHAT YOU ACTUALLY DO:
+  1. Pick a topic you struggled with and then "got".
+  2. Write a short explainer built around ONE concrete worked example.
+  3. Add a simple diagram or before/after table.
+  4. Publish it (LinkedIn, or your site's /thoughts section later).
+
+TOOLS / DATA:  Just writing + one simple visual.
+EFFORT:        1 evening.
+PRESENT AS:    A short article / post.
+SITE CARD:     "A plain-English explainer of [deferred tax], with one worked example."
+
+
+================================================================================
+PRESENTATION TIPS (these make the difference)
+================================================================================
+  - Always link the actual deliverable from the site card (the `href` field) —
+    a PDF, a public Google Sheet, or a live dashboard. A claim with proof attached
+    beats a claim alone.
+  - Name the real company / product. Specifics ("a valuation of Nestlé India") are
+    far more credible than vague ones ("a valuation of an FMCG company").
+  - Lead every deliverable with a 2-line summary: what you did and what you found.
+    Busy people read the top line and decide whether to go deeper.
+  - Keep one consistent visual style across all of them so they look like a body of
+    work, not scattered one-offs.
+  - Date them. A 2026/2027 date shows momentum.
+
+SUGGESTED ORDER TO START:
+  - Quickest win:        #7 explainer (1 evening, builds the habit of publishing).
+  - Highest firm-impact: #1 valuation or #3 red-flags read.
+  - Best "rare" signal:  #5 dashboard or #4 GST tool (finance + building).
+================================================================================

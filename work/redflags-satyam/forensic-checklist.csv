@@ -1,0 +1,15 @@
+Forensic / Quality-of-Earnings checklist — run on any company. (Companion to RED-FLAGS-SATYAM.md.) A flag = a QUESTION to investigate, not proof of wrongdoing.,,,
+,,,
+#,Check,What to compute / look at,Red flag if...,How it showed in Satyam
+1,Cash quality,Interest income / average cash & bank balance (implied yield),Implied yield far below bank/FD rates — cash may not be real or is oddly idle,~Rs 5040 cr 'cash' earned almost no interest
+2,Earnings quality,5-yr Net profit vs Operating cash flow,Profits rise but operating cash flow lags persistently,Reported profits had no matching real cash
+3,Receivables,Days Sales Outstanding (DSO) vs peers and own history,DSO drifting up vs peers — possible fictitious/aggressive revenue,Fake invoices to non-existent customers
+4,Inventory,Inventory days vs peers,Building inventory faster than sales,(n/a for IT services)
+5,Related-party txns,Size & direction of related-party deals in the notes,Shareholder cash flowing toward promoter/insiders without clear logic,Maytas: tried to buy promoter's sons' firms with the cash
+6,Promoter stake,Trend in promoter holding and pledged shares,Promoter selling/pledging while reporting record results,Promoter stake fell over the fraud years
+7,Auditor,Tenure / fees / resignations / qualifications; do they confirm bank balances,Long unchanged auditor; sudden resignation; balances not independently confirmed,Auditors did not independently verify the cash
+8,Margins vs peers,Operating & net margin vs close competitors,Margins materially better than peers with no clear reason,Reported ~24% op margin (actual ~3%)
+9,Other income,Share of profit from non-core / other income,Profit propped up by non-operating items,—
+10,Contingent liabilities,Off-balance-sheet items and commitments in the notes,Large or growing relative to net worth,Understated liabilities
+,,,
+RULE OF THUMB,"Start with the cash. Real money earns a yield and gets returned to owners. If the cash doesn't behave like real money, ask why before you trust anything else.",,

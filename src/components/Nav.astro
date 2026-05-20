@@ -6,16 +6,26 @@ const links = [
   { href: '#journey',  label: 'Journey' },
   { href: '#contact', label: 'Contact' },
 ];
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';  // always '/Harendra/'
+const homePath = base.replace(/\/$/, '');                         // '/Harendra'
+const path = Astro.url.pathname.replace(/\/$/, ''); // current path, no trailing slash
+const onHome = path === homePath || path === '';
+const onProjects = path === `${homePath}/projects`;
 ---
 
 <nav class="nav">
   <div class="container nav__inner">
     <a href={base} class="nav__mark font-mono" aria-label={`${profile.name} — home`}>HK<span>.</span></a>
     <ul class="nav__links font-mono">
-      {links.map((l) => (
-        <li><a href={l.href}>{l.label}</a></li>
-      ))}
+      {links.map((l) => {
+        const href = onHome ? l.href : `${homePath}/${l.href}`;
+        const active = onProjects && l.href === '#projects';
+        return (
+          <li>
+            <a href={href} class={active ? 'is-active' : undefined} aria-current={active ? 'page' : undefined}>{l.label}</a>
+          </li>
+        );
+      })}
     </ul>
   </div>
   <hr class="rule" />

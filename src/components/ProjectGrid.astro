@@ -1,0 +1,91 @@
+---
+import type { Project } from '../content/profile';
+
+interface Props {
+  projects: Project[];
+  note?: string;       // shown when there are no projects
+  startIndex?: number; // first card's number (default 0 -> "01")
+}
+const { projects, note, startIndex = 0 } = Astro.props;
+---
+
+{projects.length === 0 ? (
+  note && <p class="proj__empty font-display measure" data-reveal>{note}</p>
+) : (
+  <ul class="proj">
+    {projects.map((p, i) => (
+      <li class="proj__card" data-reveal>
+        <div class="proj__top font-mono">
+          <span class="proj__idx">{String(startIndex + i + 1).padStart(2, '0')}</span>
+          <span class="proj__meta">
+            {p.draft && <span class="proj__tag">sample</span>}
+            {p.year && <span class="proj__year">{p.year}</span>}
+          </span>
+        </div>
+        <h3 class="proj__title font-display">
+          {p.href ? (
+            <a href={p.href} target="_blank" rel="noopener noreferrer">{p.title} <span aria-hidden="true">↗</span></a>
+          ) : (
+            p.title
+          )}
+        </h3>
+        <p class="proj__blurb">{p.blurb}</p>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .proj__empty {
+    font-size: var(--t-h2);
+    font-style: italic;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .proj {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-5);
+  }
+  @media (max-width: 720px) { .proj { grid-template-columns: 1fr; } }
+  .proj__card {
+    border: 1px solid var(--rule-2);
+    background: var(--paper);
+    padding: var(--s-6);
+    border-radius: 3px;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease),
+      border-color var(--dur) var(--ease);
+  }
+  .proj__card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--blue);
+    border-color: var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .proj__card:hover { transform: none; }
+  }
+  .proj__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s-4);
+    font-size: var(--t-mono);
+  }
+  .proj__idx { color: var(--blue); }
+  .proj__meta { display: inline-flex; align-items: center; gap: var(--s-3); }
+  .proj__year { color: var(--ink-mute); font-size: var(--t-micro); }
+  .proj__tag {
+    font-size: var(--t-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    border: 1px solid color-mix(in srgb, var(--blue) 55%, transparent);
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+  .proj__title { font-size: var(--t-h3); margin-bottom: var(--s-3); }
+  .proj__title a { transition: color var(--dur-fast) var(--ease); }
+  .proj__title a:hover { color: var(--blue); }
+  .proj__blurb { color: var(--ink-2); }
+</style>

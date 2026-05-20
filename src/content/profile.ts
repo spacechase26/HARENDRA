@@ -67,6 +67,24 @@ export const profile = {
       year: '2027',
       draft: true,
     },
+    {
+      title: 'Ratio analysis dashboard',
+      blurb: 'Turn three years of statements into the handful of ratios that actually tell the story.',
+      year: '2026',
+      draft: true,
+    },
+    {
+      title: 'Tax computation, worked',
+      blurb: 'An individual return computed end to end — with the reasoning shown, not hidden.',
+      year: '2027',
+      draft: true,
+    },
+    {
+      title: 'Inventory & costing model',
+      blurb: 'A small model for valuing inventory under FIFO, weighted-average and standard costing.',
+      year: '2026',
+      draft: true,
+    },
   ] as Project[],
 
   /* forward-only path: B.Com -> CA Inter -> Final */

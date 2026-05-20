@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectGrid from '../components/ProjectGrid.astro';
+import { profile } from '../content/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';  // always trailing slash
+const count = profile.projects.length;
+---
+
+<Base
+  title={`Projects — ${profile.name}`}
+  description={`Projects and case work by ${profile.name}, ${profile.location}.`}
+>
+  <header id="top" class="phead">
+    <div class="container">
+      <a href={base} class="phead__back font-mono"><span aria-hidden="true">←</span> Back</a>
+      <div class="phead__row">
+        <h1 class="phead__title font-display">Projects</h1>
+        <span class="phead__count font-mono">{count} {count === 1 ? 'entry' : 'entries'}</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <ProjectGrid projects={profile.projects} note={profile.projectsNote} />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .phead {
+    padding-top: clamp(40px, 8vh, 96px);
+    padding-bottom: var(--s-4);
+  }
+  .phead__back {
+    display: inline-block;
+    margin-bottom: clamp(28px, 6vh, 64px);
+    font-size: var(--t-mono);
+    letter-spacing: var(--track-mono);
+    text-transform: uppercase;
+    color: var(--ink-mute);
+    border-bottom: 1px solid transparent;
+    transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .phead__back:hover { color: var(--accent); border-color: var(--accent); }
+  .phead__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--s-4);
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: var(--s-5);
+  }
+  .phead__title {
+    font-size: clamp(2.8rem, 8vw, 6rem);
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+  }
+  .phead__count {
+    font-size: var(--t-mono);
+    letter-spacing: var(--track-mono);
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .section { padding-top: var(--s-7); padding-bottom: var(--section-y); }
+</style>

@@ -55,7 +55,8 @@ const base = import.meta.env.BASE_URL;
     border-bottom: 1px solid transparent;
     transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   }
-  .nav__links a:hover {
+  .nav__links a:hover,
+  .nav__links a.is-active {
     color: var(--ink);
     border-color: var(--accent);
   }
@@ -66,3 +67,29 @@ const base = import.meta.env.BASE_URL;
     .nav__links { gap: var(--s-3); font-size: var(--t-micro); }
   }
 </style>
+
+<script>
+  // scroll-spy: highlight the nav link for the section in view
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.nav__links a'));
+  const byId = new Map(
+    links.map((a) => [a.getAttribute('href')?.slice(1) ?? '', a])
+  );
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]')).filter(
+    (s) => byId.has(s.id)
+  );
+
+  if (sections.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((a) => a.classList.remove('is-active'));
+            byId.get((entry.target as HTMLElement).id)?.classList.add('is-active');
+          }
+        });
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => io.observe(s));
+  }
+</script>

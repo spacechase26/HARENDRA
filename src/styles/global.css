@@ -31,12 +31,19 @@ body {
 }
 
 h1, h2, h3, h4 { font-weight: 400; line-height: 1.05; }
-.font-display { font-family: var(--font-display); }
+.font-display { font-family: var(--font-display); letter-spacing: var(--track-display); }
 .font-mono { font-family: var(--font-mono); }
 
 a { color: inherit; text-decoration: none; }
 
 ::selection { background: var(--accent); color: var(--paper); }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+:focus:not(:focus-visible) { outline: none; }
 
 img, svg { display: block; max-width: 100%; }
 
@@ -71,6 +78,13 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
 }
 [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* interactive cards are also reveal targets — keep their hover snappy
+   (this global rule outranks the generic reveal transition above) */
+.is-ready .proj__card[data-reveal] {
+  transition: opacity 0.7s var(--ease-out), transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }

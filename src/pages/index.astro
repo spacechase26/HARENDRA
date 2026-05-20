@@ -14,9 +14,10 @@ const statusLabel: Record<string, string> = {
   <!-- ============ HERO ============ -->
   <header id="top" class="hero">
     <div class="container">
-      <p class="hero__eyebrow eyebrow">
-        <span class="hero__eyedot" aria-hidden="true"></span>{profile.location} · CA Aspirant
-      </p>
+      <div class="hero__meta font-mono">
+        <span class="hero__loc"><span class="hero__eyedot" aria-hidden="true"></span>{profile.location}</span>
+        <span class="hero__role">CA Aspirant</span>
+      </div>
 
       <h1 class="hero__name font-display">
         <span class="hero__mask"><span class="hero__inner">{profile.name}</span></span>
@@ -115,32 +116,43 @@ const statusLabel: Record<string, string> = {
   /* ---------- HERO ---------- */
   .hero {
     position: relative;
-    padding-top: clamp(64px, 14vh, 160px);
-    padding-bottom: var(--section-y);
+    padding-top: clamp(72px, 15vh, 184px);
+    padding-bottom: clamp(64px, 11vh, 128px);
   }
-  .hero__eyebrow { margin-bottom: var(--s-5); display: inline-flex; align-items: center; gap: var(--s-2); }
-  .hero__eyedot { width: 9px; height: 9px; background: var(--accent); border-radius: 1px; }
+  .hero__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-4);
+    margin-bottom: clamp(28px, 5vh, 56px);
+    font-size: var(--t-mono);
+    letter-spacing: var(--track-mono);
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .hero__loc { display: inline-flex; align-items: center; gap: var(--s-2); }
+  .hero__eyedot { width: 9px; height: 9px; background: var(--accent); border-radius: 1px; flex: none; }
   .hero__name {
     font-size: var(--t-name);
-    line-height: 0.92;
-    letter-spacing: -0.01em;
+    line-height: 0.88;
+    letter-spacing: -0.03em;
   }
-  .hero__mask { display: inline-block; overflow: hidden; padding-bottom: 0.06em; }
+  .hero__mask { display: inline-block; overflow: hidden; padding-bottom: 0.08em; }
   .hero__inner { display: inline-block; will-change: transform; }
   .hero__under {
     display: block;
     height: 4px;
-    width: min(300px, 62%);
+    width: min(320px, 64%);
     background: var(--accent);
     border-radius: 2px;
-    margin-top: var(--s-4);
+    margin-top: var(--s-5);
     transform-origin: left center;
   }
   .hero__tagline {
     font-size: var(--t-lead);
     color: var(--ink-2);
-    line-height: 1.4;
-    margin-top: var(--s-6);
+    line-height: 1.38;
+    margin-top: var(--s-7);
   }
   .hero__now {
     display: inline-flex;
@@ -315,20 +327,20 @@ const statusLabel: Record<string, string> = {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const inner = document.querySelector('.hero__inner');
   const under = document.querySelector('.hero__under');
-  const eyebrow = document.querySelector('.hero__eyebrow');
+  const meta = document.querySelector('.hero__meta');
   const tagline = document.querySelector('.hero__tagline');
   const now = document.querySelector('.hero__now');
 
   if (!reduce && inner) {
-    gsap.set([eyebrow, tagline, now], { opacity: 0, y: 16 });
+    gsap.set([meta, tagline, now], { opacity: 0, y: 16 });
     gsap.set(inner, { yPercent: 115 });
     gsap.set(under, { scaleX: 0 });
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.to(eyebrow, { opacity: 1, y: 0, duration: 0.5 }, 0.05)
+    tl.to(meta, { opacity: 1, y: 0, duration: 0.55 }, 0.05)
       .to(inner, { yPercent: 0, duration: 1.05, ease: 'expo.out' }, 0.12)
-      .to(under, { scaleX: 1, duration: 0.7, ease: 'power4.inOut' }, 0.55)
-      .to(tagline, { opacity: 1, y: 0, duration: 0.6 }, 0.6)
-      .to(now, { opacity: 1, y: 0, duration: 0.6 }, 0.75);
+      .to(under, { scaleX: 1, duration: 0.7, ease: 'power4.inOut' }, 0.58)
+      .to(tagline, { opacity: 1, y: 0, duration: 0.6 }, 0.62)
+      .to(now, { opacity: 1, y: 0, duration: 0.6 }, 0.78);
   }
 </script>

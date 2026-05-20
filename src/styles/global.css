@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  position: relative;            /* containing block for the spine */
+  position: relative;            /* containing block for the margin rule */
   /* ruled ledger paper: faint blue horizontal rules on warm stock */
   background-color: var(--paper);
   background-image: repeating-linear-gradient(
@@ -61,7 +61,7 @@ img, svg { display: block; max-width: 100%; }
 .eyebrow {
   font-family: var(--font-mono);
   font-size: var(--t-mono);
-  letter-spacing: 0.16em;
+  letter-spacing: var(--track-mono);
   text-transform: uppercase;
   color: var(--ink-mute);
 }

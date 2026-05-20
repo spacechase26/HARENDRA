@@ -123,7 +123,7 @@ const statusLabel: Record<string, string> = {
     letter-spacing: -0.03em;
   }
   .hero__mask { display: inline-block; overflow: hidden; padding-bottom: 0.08em; }
-  .hero__inner { display: inline-block; will-change: transform; }
+  .hero__inner { display: inline-block; }
   .hero__under {
     display: block;
     height: 4px;
@@ -161,6 +161,18 @@ const statusLabel: Record<string, string> = {
   }
   @media (prefers-reduced-motion: reduce) {
     .hero__now .dot { animation: none; }
+  }
+
+  /* hero entrance — CSS only, runs on load (no JS dependency) */
+  @keyframes heroRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @keyframes heroName { from { transform: translateY(115%); } to { transform: translateY(0); } }
+  @keyframes heroDraw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero__meta    { animation: heroRise 0.55s var(--ease-out) 0.05s both; }
+    .hero__inner   { animation: heroName 1.05s var(--ease-out) 0.12s both; }
+    .hero__under   { animation: heroDraw 0.70s var(--ease)     0.55s both; }
+    .hero__tagline { animation: heroRise 0.60s var(--ease-out) 0.60s both; }
+    .hero__now     { animation: heroRise 0.60s var(--ease-out) 0.78s both; }
   }
 
   /* ---------- shared section ---------- */
@@ -263,28 +275,3 @@ const statusLabel: Record<string, string> = {
   .contact__socials a { color: var(--on-dark-mute); transition: color var(--dur-fast) var(--ease); }
   .contact__socials a:hover { color: var(--blue-bright); }
 </style>
-
-<!-- hero entrance animation -->
-<script>
-  import { gsap } from 'gsap';
-
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const inner = document.querySelector('.hero__inner');
-  const under = document.querySelector('.hero__under');
-  const meta = document.querySelector('.hero__meta');
-  const tagline = document.querySelector('.hero__tagline');
-  const now = document.querySelector('.hero__now');
-
-  if (!reduce && inner) {
-    gsap.set([meta, tagline, now], { opacity: 0, y: 16 });
-    gsap.set(inner, { yPercent: 115 });
-    gsap.set(under, { scaleX: 0 });
-
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    tl.to(meta, { opacity: 1, y: 0, duration: 0.55 }, 0.05)
-      .to(inner, { yPercent: 0, duration: 1.05, ease: 'expo.out' }, 0.12)
-      .to(under, { scaleX: 1, duration: 0.7, ease: 'power4.inOut' }, 0.58)
-      .to(tagline, { opacity: 1, y: 0, duration: 0.6 }, 0.62)
-      .to(now, { opacity: 1, y: 0, duration: 0.6 }, 0.78);
-  }
-</script>

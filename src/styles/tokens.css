@@ -5,17 +5,14 @@
 :root {
   /* ---- palette --------------------------------------------- */
   --paper:      #F6F2E9;   /* warm ledger paper (page bg)        */
-  --paper-2:    #EFEADF;   /* slightly deeper panel              */
   --ink:        #15130E;   /* near-black ink (text)              */
   --ink-2:      #3A362D;   /* secondary text                     */
   --ink-mute:   #6B6557;   /* muted labels / meta                */
   --rule:       #DAD3C4;   /* hairline rules                     */
   --rule-2:     #C8C0AE;   /* stronger rule                      */
   --accent:     #A6291E;   /* oxblood / ledger red (primary)     */
-  --accent-2:   #8A1F16;   /* pressed accent                     */
   --accent-soft:#F3E3DD;   /* faint accent wash                  */
   --blue:        #244B73;  /* ink blue (secondary accent)        */
-  --blue-soft:   #E3E9F1;  /* faint ink-blue wash                */
   --blue-bright: #7BA0CC;  /* lighter blue for dark backgrounds  */
   --green:      #2E6A52;   /* deep emerald ("done" / settled)    */
   --green-soft: #DDE8E0;   /* faint green wash                   */

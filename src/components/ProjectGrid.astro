@@ -19,13 +19,13 @@ const n = (i: number) => String(startIndex + i + 1).padStart(2, '0');
       <li class="prow" data-reveal>
         <span class="prow__idx font-mono">{n(i)}</span>
         <div class="prow__body">
-          <h3 class="prow__title font-display">
+          <h2 class="prow__title font-display">
             {p.href ? (
               <a href={p.href} target="_blank" rel="noopener noreferrer">{p.title} <span aria-hidden="true">↗</span></a>
             ) : (
               p.title
             )}
-          </h3>
+          </h2>
           <p class="prow__blurb">{p.blurb}</p>
         </div>
         <span class="prow__meta font-mono">

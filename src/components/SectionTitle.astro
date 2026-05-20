@@ -10,7 +10,7 @@ const { num, label, tone = 'red' } = Astro.props;
 <div class={`stitle stitle--${tone}`} data-reveal>
   <span class="stitle__bar" aria-hidden="true"></span>
   <span class="stitle__num font-mono">{num}</span>
-  <span class="stitle__label eyebrow">{label}</span>
+  <h2 class="stitle__label eyebrow">{label}</h2>
   <span class="stitle__line"></span>
 </div>
 
